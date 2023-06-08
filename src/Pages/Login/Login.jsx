@@ -112,7 +112,7 @@ console.log(hide);
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type={hide?'text':'password'} placeholder="password" {...register("password", {
+                                    <input type={hide?'password':'text'} placeholder="password" {...register("password", {
                                         required: true,
                                         // pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}/
                                     })} name='password' className="input input-bordered" />
@@ -123,9 +123,9 @@ console.log(hide);
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forget password?</a>
                                     </label>
-                                    <div onClick={()=>setHide(!hide)} className="border text-2xl absolute">
-                                        {hide? <FaEye></FaEye>:
-                                        <FaEyeSlash></FaEyeSlash>}
+                                    <div onClick={()=>setHide(!hide)} className="text-gray-500 text-2xl absolute right-0 top-12 mr-5">
+                                        {hide?<FaEyeSlash></FaEyeSlash> :<FaEye></FaEye>
+                                        }
                                         
                                     </div>
                                 </div>
