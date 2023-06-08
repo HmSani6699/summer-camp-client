@@ -16,7 +16,7 @@ const {user}=useAuth()
 
 
     return (
-        <div className="navbar bg-stone-100 fixed max-w-7xl mx-auto">
+        <div className="navbar bg-stone-100 fixed z-10  max-w-7xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,8 +41,8 @@ const {user}=useAuth()
                     </div>
                 </div>
                 {
-                    user?<Link to='/register'><button className="btn btn-warning">Log Out</button></Link>:
-                    <Link to='/login'><button className="btn btn-warning">Log in</button></Link>
+                    user?<Link to='/register'> <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log Out" /></Link>:
+                    <Link to='/login'> <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log in" /></Link>
                 }
 
             </div>

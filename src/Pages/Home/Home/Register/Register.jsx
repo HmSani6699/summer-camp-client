@@ -1,21 +1,20 @@
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import loginImg from '../../assets/others/authentication1.png';
-import bannerImg from '../../assets/others/authentication.png'
 import { Helmet } from "react-helmet";
-import { useContext } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAuth from "../../../../Hooks/useAuth";
+import loginImg from '../../../../assets/login.png';
 
 
 
 const Register = () => {
-    const { creatUser, updateUserProfule, googleLogin } = useContext(AuthContext);
+    const { creatUser, updateUserProfule, googleLogin } = useAuth();
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+
 
 
     const onSubmit = data => {
@@ -88,12 +87,12 @@ const Register = () => {
     }
 
     return (
-        <div style={{ backgroundImage: `url(${bannerImg})` }} className="hero">
-            <Helmet><title>Bistro boss | Register</title></Helmet>
-            <div style={{ backgroundImage: `url(${bannerImg})` }} className=" loginBox border-2 my-10 ">
+        <div  className="hero pt-24">
+            <Helmet><title>Sadiq | Register</title></Helmet>
+            <div  className=" loginBox border-2 my-10 ">
                 <div className="hero-content  flex-col lg:flex-row w-full">
                     <div className="text-center w-1/2 ">
-                        <img src={loginImg} alt="" />
+                    <img className="lg:w-[700px] lg:h-[400px]" src={loginImg} alt="" />
                     </div>
                     <div className="card w-1/2 flex-shrink-0   h-full">
                         <h2 className=' text-3xl font-bold text-center '>Sign up</h2>
@@ -132,10 +131,10 @@ const Register = () => {
                                     {errors.photo && <span className="text-red-600 mt-1 ml-3">Photo url field is required !</span>}
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input type="submit" className="btn bg-[rgb(209,160,84)] mr-5" value="Sign up" />
+                                    <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Sign up" />
                                 </div>
                             </form>
-                            <p className='text-center mt-6  text-[rgb(209,160,84)]'>NAlready registered? <Link className='font-semibold' to='/login'>Go to log in</Link></p>
+                            <p className='text-center mt-6  text-amber-500'>Already registered? <Link className='font-semibold' to='/login'>Go to log in</Link></p>
                             <div className="divider">Or sign in with</div>
                             <div className='flex items-center justify-center gap-5 mt-6 '>
                                 <button onClick={handleGoogleLogin} className="btn btn-circle btn-outline"><FaGoogle></FaGoogle></button>
