@@ -2,11 +2,7 @@ import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Login.css';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-
-
-
 import loginImg from '../../assets/login.png';
-
 import {Helmet} from "react-helmet";
 import {  useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -145,7 +141,6 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
         </div>
     );
 };
