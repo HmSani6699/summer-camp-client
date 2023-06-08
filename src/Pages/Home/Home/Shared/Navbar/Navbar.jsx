@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import logo from '../../../../../assets/logo.png'
+import useAuth from "../../../../../Hooks/useAuth";
 
 
 
 
 const Navbar = () => {
 
-    
+const {user}=useAuth()
 
     const navLink = <>
         <li><Link>Home</Link></li>
@@ -34,11 +35,15 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="avatar online">
+                <div className="avatar online lg:mr-4">
                     <div className="w-12 h-12 rounded-full ring ring-[#fbbc24e3] ring-offset-base-100 ring-offset-2">
                         <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
                 </div>
+                {
+                    user?<Link to='/register'><button className="btn btn-warning">Log Out</button></Link>:
+                    <Link to='/login'><button className="btn btn-warning">Log in</button></Link>
+                }
 
             </div>
         </div>
