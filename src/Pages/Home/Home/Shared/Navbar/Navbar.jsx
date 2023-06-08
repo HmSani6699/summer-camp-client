@@ -20,7 +20,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className="h-16 w-16" src={logo} alt="" />
-               <h2 className="text-2xl font-bold text-amber-400">SADIQ</h2>
+                <h2 className="text-2xl font-bold text-amber-400">SADIQ</h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="font-semibold text-1xl menu menu-horizontal px-1">
@@ -28,7 +28,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <div className="avatar">
+                    <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    </div>
+                </div>
+                
             </div>
         </div>
     );
