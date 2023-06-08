@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate} from "react-router-dom";
 import logo from '../../../../../assets/logo.png'
 import useAuth from "../../../../../Hooks/useAuth";
 
@@ -6,11 +6,17 @@ import useAuth from "../../../../../Hooks/useAuth";
 
 
 const Navbar = () => {
-
     const { user, logOutUser } = useAuth();
+    const navigate = useNavigate()
 
     const handleLogOut = () => {
         logOutUser()
+        .then(()=>{
+            console.log('ami runng asi');
+            navigate('/login', { replace: true })
+            
+        })
+        .catch((error)=>console.log(error))
     }
 
 
@@ -47,7 +53,7 @@ const Navbar = () => {
                     </div>
                 </div>}
                 {
-                    user ? <Link to='/register'> <input onClick={handleLogOut} type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log Out" /></Link> :
+                    user ? <Link> <input onClick={handleLogOut} type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log Out" /></Link> :
                         <Link to='/login'> <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log in" /></Link>
                 }
 

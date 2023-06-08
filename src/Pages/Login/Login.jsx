@@ -65,9 +65,7 @@ const Login = () => {
             .catch(error => console.log(error))
 
     }
-
-
-console.log(hide);    
+  
 
     return (
         <div className="hero pt-24">
