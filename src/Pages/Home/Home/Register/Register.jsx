@@ -7,57 +7,22 @@ import useAuth from "../../../../Hooks/useAuth";
 import loginImg from '../../../../assets/login.png';
 
 
-
 const Register = () => {
-    const { creatUser, updateUserProfule, googleLogin } = useAuth();
+    const { user, creatUser, updateUserProfule, googleLogin } = useAuth();
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-
-
     const onSubmit = data => {
-        const { email, password, name, photo } = data;
-
-        // Crest new user
+        const { name, password, confirmPassword, email, photo } = data;
+        console.log(data);
         creatUser(email, password)
-            .then(result => {
-                const user = result.user;
+            .then((result) => {
+                const user = result.user
                 console.log(user);
-                // update user profule
-                updateUserProfule(user, name, photo)
-                    .then(() => {
-                        const loggedUser = { name: user?.displayName, email: user?.email }
-                        fetch(`http://localhost:5000/user`, {
-                            method: 'POST',
-                            headers: {
-                                'content-type': 'application/json'
-                            },
-                            body: JSON.stringify(loggedUser)
-                        })
-                            .then(res => res.json())
-                            .then(data => {
-                                console.log(data);
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Registation Success full!',
-                                })
-
-                            })
-                    })
-                    .catch(error => console.log(error))
-
-                navigate(from, { replace: true });
             })
-            .catch(error => {
-                console.log(error)
-                Swal.fire({
-                    icon: 'error',
-                    title: `{${error}}`,
-                })
-            })
-        reset()
+            .catch((error)=>console.log(error))
     };
 
 
@@ -80,19 +45,19 @@ const Register = () => {
                         console.log(data);
                         navigate(from, { replace: true });
                     })
-                    navigate(from, { replace: true });
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
 
     }
 
     return (
-        <div  className="hero pt-24">
+        <div className="hero pt-24">
             <Helmet><title>Sadiq | Register</title></Helmet>
-            <div  className=" loginBox border-2 my-10 ">
+            <div className=" loginBox border-2 my-10 ">
                 <div className="hero-content  flex-col lg:flex-row w-full">
                     <div className="text-center w-1/2 ">
-                    <img className="lg:w-[700px] lg:h-[400px]" src={loginImg} alt="" />
+                        <img className="lg:w-[700px] lg:h-[400px]" src={loginImg} alt="" />
                     </div>
                     <div className="card w-1/2 flex-shrink-0   h-full">
                         <h2 className=' text-3xl font-bold text-center '>Sign up</h2>
@@ -120,6 +85,17 @@ const Register = () => {
                                         required: true,
                                         // pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}/
                                     })} name='password' className="input input-bordered" />
+                                    {errors.password?.type === 'required' && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
+                                    {/* {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>} */}
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Confirm Password</span>
+                                    </label>
+                                    <input type="password" placeholder="Confirm Password" {...register("confirmPassword", {
+                                        required: true,
+                                        // pattern: /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}/
+                                    })} className="input input-bordered" />
                                     {errors.password?.type === 'required' && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
                                     {/* {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>} */}
                                 </div>

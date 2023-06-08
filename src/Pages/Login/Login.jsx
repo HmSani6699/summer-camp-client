@@ -1,18 +1,17 @@
 import { FaEye, FaEyeSlash, FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import './Login.css';
-import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import loginImg from '../../assets/login.png';
-import { Helmet } from "react-helmet";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import './Login.css';
 
 const Login = () => {
-    const [hide, setHide] = useState(true)
-    const [disable, setDisable] = useState(true);
-    const { logInUser, googleLogin } = useAuth()
+    const [hide, setHide] = useState(true);
+
+    const { logInUser, googleLogin } = useAuth();
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
@@ -68,25 +67,6 @@ const Login = () => {
     }
 
 
-    useEffect(() => {
-        loadCaptchaEnginge(6);
-    }, [])
-
-    // Chapcha section
-    const handleChpachaValidate = (event) => {
-        const typeValue = event.target.value;
-        if (typeValue.length == 6) {
-            if (validateCaptcha(typeValue)) {
-                setDisable(false);
-            } else {
-                setDisable(true);
-            }
-        } else {
-            setDisable(true)
-        }
-    }
-
-
 console.log(hide);    
 
     return (
@@ -129,14 +109,8 @@ console.log(hide);
                                         
                                     </div>
                                 </div>
-                                <div className="form-control">
-                                    <label className="label">
-                                        <LoadCanvasTemplate />
-                                    </label>
-                                </div>
-                                <div className="form-control">
-                                    <input type="text" onChange={handleChpachaValidate} placeholder="Type chapcha avobe here" name='chapcha' className="input input-bordered" />
-                                </div>
+                            
+                               
                                 <div className="form-control mt-6">
                                     <input disabled={false} type="submit" className=" btn bg-[#fbbc24e3] mr-5" value="Sign in" />
                                 </div>
