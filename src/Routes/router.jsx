@@ -3,6 +3,7 @@ import {
 } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
+import Error from "../Pages/Home/Home/ErrorPage/Error";
 
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path:'*',
+        element:<Error></Error>
+    }
 ]);
 
 export default router;
