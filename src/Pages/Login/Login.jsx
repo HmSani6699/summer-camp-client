@@ -2,20 +2,19 @@ import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import './Login.css';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
-import loginImg from '../../assets/others/authentication1.png';
-import bannerImg from '../../assets/others/authentication.png'
-import { Helmet } from "react-helmet";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Providers/AuthProvider";
+
+import loginImg from '../../assets/login.png';
+
+import {Helmet} from "react-helmet";
+import {  useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
-    const { logInUser, googleLogin } = useContext(AuthContext)
+    const { logInUser, googleLogin } = useAuth()
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
@@ -81,37 +80,17 @@ const Login = () => {
         if (typeValue.length == 6) {
             if (validateCaptcha(typeValue)) {
                 setDisable(false);
-                toast.success('Chapcha is maching!', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
             } else {
                 setDisable(true);
-                toast.error(`Chapcha is not maching!`, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
             }
         } else {
             setDisable(true)
         }
     }
     return (
-        <div style={{ backgroundImage: `url(${bannerImg})` }} className="hero">
-            <Helmet><title>Bistro boss | Login</title></Helmet>
-            <div style={{ backgroundImage: `url(${bannerImg})` }} className=" loginBox border-2 my-10 ">
+        <div  className="hero">
+            <Helmet><title>Sadiq | Login</title></Helmet>
+            <div  className=" loginBox border-2 my-10 ">
                 <div className="hero-content  flex-col lg:flex-row w-full">
                     <div className="text-center w-1/2 ">
                         <img src={loginImg} alt="" />
