@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import logo from '../../../../../assets/logo.png'
+
+
+
+
 const Navbar = () => {
+
+    
 
     const navLink = <>
         <li><Link>Home</Link></li>
@@ -28,12 +34,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="avatar">
-                    <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="avatar online">
+                    <div className="w-12 h-12 rounded-full ring ring-[#fbbc24e3] ring-offset-base-100 ring-offset-2">
                         <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
                 </div>
-                
+
             </div>
         </div>
     );
