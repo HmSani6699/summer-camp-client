@@ -5,10 +5,12 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../../../Hooks/useAuth";
 import loginImg from '../../../../assets/login.png';
+import { useState } from "react";
 
 
 const Register = () => {
-    const { user, creatUser, updateUserProfule, googleLogin } = useAuth();
+    const [matchPasword, setMatchPassword] = useState('')
+    const { creatUser, updateUserProfule, googleLogin } = useAuth();
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
@@ -17,19 +19,27 @@ const Register = () => {
     const onSubmit = data => {
         const { name, password, confirmPassword, email, photo } = data;
         console.log(data);
+
+        if (password !== confirmPassword) {
+            setMatchPassword('Password is not matching');
+            return
+        }
+
         creatUser(email, password)
             .then((result) => {
                 const user = result.user
-                updateUserProfule(user,name,photo)
-                .then(()=>{
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Registation success full !!',
-                      })
-                })
-                .catch(error=>console.log(error))
+                updateUserProfule(user, name, photo)
+                    .then(() => {
+                        navigate(from, { replace: true });
+                        reset()
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Registation success full !!',
+                        })
+                    })
+                    .catch(error => console.log(error))
             })
-            .catch((error)=>console.log(error))
+            .catch((error) => console.log(error))
     };
 
 
@@ -77,14 +87,14 @@ const Register = () => {
                                     <input type="text" placeholder="name" {...register("name", { required: true })} name='name' className="input input-bordered" />
                                     {errors.name && <span className="text-red-600 mt-1 ml-3">Name field is required !</span>}
                                 </div>
-                                <div className="form-control">
+                                <div className="form-control mt-2">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
                                     <input type="email" placeholder="email" {...register("email", { required: true })} name='email' className="input input-bordered" />
                                     {errors.email && <span className="text-red-600 mt-1 ml-3">Email field is required !</span>}
                                 </div>
-                                <div className="form-control">
+                                <div className="form-control mt-2">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
@@ -95,7 +105,7 @@ const Register = () => {
                                     {errors.password?.type === 'required' && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
                                     {/* {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>} */}
                                 </div>
-                                <div className="form-control">
+                                <div className="form-control mt-2">
                                     <label className="label">
                                         <span className="label-text">Confirm Password</span>
                                     </label>
@@ -105,6 +115,9 @@ const Register = () => {
                                     })} className="input input-bordered" />
                                     {errors.password?.type === 'required' && <span className="text-red-600 mt-1 ml-3">Password field is required !</span>}
                                     {/* {errors.password?.type === 'pattern' && <p className="text-red-600 mt-1 ml-3">Password must have one Upper Catch and one Lower catch and one number and one Special character and Minimum six in length !</p>} */}
+                                    <label className="label">
+                                        <span className="label-text text-red-500">{matchPasword}</span>
+                                    </label>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
