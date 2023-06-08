@@ -37,9 +37,21 @@ const Register = () => {
                             title: 'Registation success full !!',
                         })
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => {
+                        console.log(error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: `{${error}}`,
+                        })
+                    })
             })
-            .catch((error) => console.log(error))
+            .catch((error) => {
+                console.log(error);
+                Swal.fire({
+                    icon: 'error',
+                    title: `{${error}}`,
+                })
+            })
     };
 
 

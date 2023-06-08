@@ -1,6 +1,7 @@
-import { Link, Navigate, useNavigate} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import logo from '../../../../../assets/logo.png'
 import useAuth from "../../../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 // HANDLE LOG OUT
 
@@ -13,10 +14,19 @@ const Navbar = () => {
         logOutUser()
         .then(()=>{
             console.log('ami runng asi');
-            navigate('/login', { replace: true })
+            navigate('/login', { replace: true });
+            Swal.fire({
+                icon: 'success',
+                title: `Log Out success`,
+            })
             
         })
-        .catch((error)=>console.log(error))
+        .catch((error)=>{
+            Swal.fire({
+                icon: 'error',
+                title: `{${error}}`,
+            })
+        })
     }
 
 
