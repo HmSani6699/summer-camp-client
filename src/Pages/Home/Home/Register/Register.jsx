@@ -20,7 +20,9 @@ const Register = () => {
         creatUser(email, password)
             .then((result) => {
                 const user = result.user
-                console.log(user);
+                updateUserProfule(user,name,photo)
+                .then(()=>{})
+                .catch(error=>console.log(error))
             })
             .catch((error)=>console.log(error))
     };

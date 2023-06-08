@@ -37,7 +37,7 @@ const {user}=useAuth()
             <div className="navbar-end">
                 <div className="avatar online lg:mr-4">
                     <div className="w-12 h-12 rounded-full ring ring-[#fbbc24e3] ring-offset-base-100 ring-offset-2">
-                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                        <img src={user?.photoURL} />
                     </div>
                 </div>
                 {
