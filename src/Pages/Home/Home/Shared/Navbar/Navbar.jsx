@@ -2,12 +2,18 @@ import { Link } from "react-router-dom";
 import logo from '../../../../../assets/logo.png'
 import useAuth from "../../../../../Hooks/useAuth";
 
-
+// HANDLE LOG OUT
 
 
 const Navbar = () => {
 
-const {user}=useAuth()
+    const { user, logOutUser } = useAuth();
+
+    const handleLogOut = () => {
+        logOutUser()
+    }
+
+
 
     const navLink = <>
         <li><Link>Home</Link></li>
@@ -35,14 +41,14 @@ const {user}=useAuth()
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="avatar online lg:mr-4">
+                {user && <div className="avatar online lg:mr-4">
                     <div className="w-12 h-12 rounded-full ring ring-[#fbbc24e3] ring-offset-base-100 ring-offset-2">
                         <img src={user?.photoURL} />
                     </div>
-                </div>
+                </div>}
                 {
-                    user?<Link to='/register'> <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log Out" /></Link>:
-                    <Link to='/login'> <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log in" /></Link>
+                    user ? <Link to='/register'> <input onClick={handleLogOut} type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log Out" /></Link> :
+                        <Link to='/login'> <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log in" /></Link>
                 }
 
             </div>

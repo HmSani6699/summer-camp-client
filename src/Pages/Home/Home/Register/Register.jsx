@@ -21,7 +21,12 @@ const Register = () => {
             .then((result) => {
                 const user = result.user
                 updateUserProfule(user,name,photo)
-                .then(()=>{})
+                .then(()=>{
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Registation success full !!',
+                      })
+                })
                 .catch(error=>console.log(error))
             })
             .catch((error)=>console.log(error))
