@@ -5,8 +5,8 @@ const PopularClass = ({ classe }) => {
 
     return (
         <div className="card  w-full border bg-base-100 shadow-xl">
-            <div className="bg-slate-800 rounded-t-xl">
-                <figure><img className="h-[250px]" src={image} alt="Shoes" /></figure>
+            <div className="">
+                <figure><img className="h-[320px] rounded-t-xl border w-full" src={image} alt="Shoes" /></figure>
             </div>
             <div className="card-body ">
                 <div className="flex items-center justify-between">

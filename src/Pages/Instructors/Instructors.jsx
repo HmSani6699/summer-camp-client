@@ -23,7 +23,7 @@ export default Instructors;
 //     },
 //     {
 //       "_id": 2,
-//       "image": "https://i.ibb.co/qRbB3CG/350267781-617159070363770-3878914488958334269-n.png",
+//       "image": "https://i.ibb.co/mFw99R2/338374640-613958723881479-9133193691522719198-n.jpg",
 //       "name": "Chemistry Class",
 //       "Instructor name": "Jane Johnson",
 //       "Available seats": 12,
@@ -31,7 +31,7 @@ export default Instructors;
 //     },
 //     {
 //       "_id": 3,
-//       "image": "https://i.ibb.co/sWN0fg3/353113214-953532942438387-1532505560779015007-n.png",
+//       "image": "https://i.ibb.co/j6QbN3d/353132668-235580915857641-4659349977693052034-n.png",
 //       "name": "Physics Class",
 //       "Instructor name": "Michael Davis",
 //       "Available seats": 8,
@@ -39,7 +39,7 @@ export default Instructors;
 //     },
 //     {
 //       "_id": 4,
-//       "image": "https://i.ibb.co/mFw99R2/338374640-613958723881479-9133193691522719198-n.jpg",
+//       "image": "https://i.ibb.co/qRbB3CG/350267781-617159070363770-3878914488958334269-n.png",
 //       "name": "English Class",
 //       "Instructor name": "Emily Wilson",
 //       "Available seats": 10,
@@ -55,7 +55,7 @@ export default Instructors;
 //     },
 //     {
 //       "_id": 6,
-//       "image": "https://i.ibb.co/j6QbN3d/353132668-235580915857641-4659349977693052034-n.png",
+//       "image": " https://i.ibb.co/sWN0fg3/353113214-953532942438387-1532505560779015007-n.png",
 //       "name": "History",
 //       "Instructor name": "Sarah Anderson",
 //       "Available seats": 20,
