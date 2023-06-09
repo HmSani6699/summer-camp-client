@@ -32,7 +32,7 @@ const Navbar = () => {
 
 
     const navLink = <>
-        <li><Link>Home</Link></li>
+        <li><Link to='/'>Home</Link></li>
         <li><a>Item 3</a></li>
     </>
 
@@ -63,8 +63,8 @@ const Navbar = () => {
                     </div>
                 </div>}
                 {
-                    user ? <Link> <input onClick={handleLogOut} type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log Out" /></Link> :
-                        <Link to='/login'> <input type="submit" className="btn bg-[#fbbc24e3] mr-5" value="Log in" /></Link>
+                    user ? <Link> <input onClick={handleLogOut} type="submit" className="btn border-0 bg-[#fbbc24e3] mr-5" value="Log Out" /></Link> :
+                        <Link to='/login'> <input type="submit" className="btn border-0 bg-[#fbbc24e3] mr-5" value="Log in" /></Link>
                 }
 
             </div>
