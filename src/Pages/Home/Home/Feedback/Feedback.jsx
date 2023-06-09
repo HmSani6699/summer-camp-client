@@ -13,7 +13,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css'
-import { FaQuoteLeft } from "react-icons/fa";
 
 
 
@@ -30,7 +29,7 @@ const Feedback = () => {
     <div className="max-w-6xl mx-auto bg-[#f8f9fa] py-10 mt-24">
       <h2 className="text-4xl font-bold text-center ">Our Client <span className="text-amber-400">Review</span></h2>
       <SectionTitle subHeadding={`We understand the importance of providing comprehensive instructions and guidance to your students. This section is designed specifically for PopularInstructors, offering additional resources and tips to enhance the learning experience.`}></SectionTitle>
-      <div className=" mb-24 mt-10">
+      <div className=" mb-10 mt-10">
         <Swiper
           effect={"coverflow"}
           grabCursor={true}
@@ -61,7 +60,7 @@ const Feedback = () => {
                     <img src={review.image} />
                   </div>
                 </div>
-                <p className="text-center mt-6 italic"><FaQuoteLeft></FaQuoteLeft>{review?.details} <span className="text-1xl font-bold">&#34;</span></p>
+                <p className="text-center mt-6 italic"><span className="text-1xl font-bold">&#34;</span> {review?.details} <span className="text-1xl font-bold">&#34;</span></p>
                 <h2 className="text-center mt-4 text-2xl font-bold">{review.name}</h2>
                 <div className="flex justify-center mt-8 mb-5">
                   <Rating
