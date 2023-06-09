@@ -1,5 +1,7 @@
 import { FaArrowRight } from "react-icons/fa";
-const Instructor = ({ instructor }) => {
+
+
+const PopularInstructor = ({ instructor }) => {
     // console.log(instructor);
     const { name, email, image } = instructor;
     return (
@@ -22,4 +24,4 @@ const Instructor = ({ instructor }) => {
     );
 };
 
-export default Instructor;
+export default PopularInstructor;
