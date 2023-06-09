@@ -11,6 +11,8 @@ import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 import SectionTitle from "../../../../Component/SectioneTitle/SectionTitle";
 import axios from "axios";
 import { useState } from "react";
+import { Rating } from "@smastrom/react-rating";
+import '@smastrom/react-rating/style.css'
 
 
 
@@ -58,8 +60,15 @@ const Feedback = () => {
                     <img src={review.image} />
                   </div>
                 </div>
-                <p>{review?.details}</p>
+                <p className="text-center mt-6">{review?.details}</p>
                 <h2 className="text-center mt-4 text-2xl font-bold">{review.name}</h2>
+                <div className="flex justify-center mt-8 mb-5">
+                  <Rating
+                    style={{ maxWidth: 180 }}
+                    value={review.rating}
+                    readOnly
+                  />
+                </div>
               </div>
             </SwiperSlide>)
           }
