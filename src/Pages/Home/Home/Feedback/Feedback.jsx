@@ -10,16 +10,19 @@ import './Feedback.css'
 import { Autoplay, EffectCoverflow, Pagination } from "swiper";
 import SectionTitle from "../../../../Component/SectioneTitle/SectionTitle";
 import axios from "axios";
+import { useState } from "react";
 
 
 
 const Feedback = () => {
-
+  const [reviews, setReviews] = useState();
 
   axios.get('http://localhost:5000/review')
-  .then(data => {
-    console.log(data.data);
-  })
+    .then(data => {
+      setReviews(data.data)
+    })
+
+
   return (
     <div className="max-w-6xl mx-auto bg-[#f8f9fa] py-10 mt-24">
       <h2 className="text-4xl font-bold text-center ">Our Client <span className="text-amber-400">Review</span></h2>
@@ -45,24 +48,21 @@ const Feedback = () => {
           modules={[Autoplay, EffectCoverflow, Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="bg-white">
-              <img src='' alt="" />
-              <h2 className="text-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores quibusdam tempora rerum amet earum dignissimos quo quia cumque exercitationem eligendi?</h2>
-            </div>
-          </SwiperSlide>
-          {/* <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide> */}
+
+
+          {
+            reviews?.map(review => <SwiperSlide key={review._id}>
+              <div className="bg-white p-4">
+                <div className="avatar flex justify-center">
+                  <div className="w-24 border-4 rounded-full">
+                    <img src={review.image} />
+                  </div>
+                </div>
+                <p>{review?.details}</p>
+                <h2 className="text-center mt-4 text-2xl font-bold">{review.name}</h2>
+              </div>
+            </SwiperSlide>)
+          }
         </Swiper>
       </div>
     </div>
