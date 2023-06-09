@@ -13,7 +13,7 @@ const Instructor = ({ instructor }) => {
                         <h2 className="card-title">{name}</h2>
                         <p><span className="font-bold">Email:</span> {email}</p>
                     </div>
-                    <div className="border bg-amber-300 h-9 p-3 w-9 rounded-full flex items-center justify-center">
+                    <div className="border bg-amber-300 h-8 w-8 rounded-full flex items-center justify-center">
                         <button><FaArrowRight></FaArrowRight></button>
                     </div>
                 </div>
