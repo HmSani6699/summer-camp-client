@@ -7,7 +7,7 @@ const WelcomeCart = ({ image, name, details }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{details}</p>
                 <div className="">
-                    <button className="btn btn-primary">Accept</button>
+                <button className="btn text-amber-400 btn-link">See more</button>
                 </div>
             </div>
         </div>

@@ -9,11 +9,11 @@ const Welcome = () => {
 
 
     return (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto ">
             <h2 className="text-4xl font-bold text-center mt-24">Welcome to <span className="text-amber-400">Sadiq</span></h2>
             <SectionTitle subHeadding={`We understand the importance of providing comprehensive instructions and guidance to your students. This section is designed specifically for PopularInstructors, offering additional resources and tips to enhance the learning experience.`}></SectionTitle>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5">
                 
                     <WelcomeCart image={image4} name='Best Teacher' details='Lorem ipsum dolor sit amet elit consectetur adipiscing sed eiusmod tempor.'></WelcomeCart>
                     
