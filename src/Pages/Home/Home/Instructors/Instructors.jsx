@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SectionTitle from "../../../../Component/SectioneTitle/SectionTitle";
 import axios from "axios";
+import Instructor from "./instructor";
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState();
@@ -10,12 +11,21 @@ const Instructors = () => {
             setInstructors(res.data);
         })
 
-// console.log(instructors);
+    // console.log(instructors);
     return (
-        <div>
+        <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl font-bold text-center mt-24">Our Popular <span className="text-amber-400">Instructors</span></h2>
             <SectionTitle subHeadding={`We understand the importance of providing comprehensive instructions and guidance to your students. This section is designed specifically for instructors, offering additional resources and tips to enhance the learning experience. Here, you'll find valuable information to support your teaching efforts and ensure a successful instructional process.`}></SectionTitle>
-            <h2>{instructors?.length}</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-20">
+                {
+                    instructors?.map(instructor => <Instructor
+                        key={instructor._id}
+                        instructor={instructor}
+                    ></Instructor>)
+                }
+            </div>
+
         </div>
     );
 };
