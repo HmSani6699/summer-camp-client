@@ -1,11 +1,13 @@
 
 import logo from '../../assets/logo.png'
 
-const SectionTitle = ({subHeadding}) => {
+const SectionTitle = ({ subHeadding }) => {
     return (
-        <div>
-           <img src={logo} alt="" />
-           <p>{subHeadding}</p>
+        <div className='flex justify-center'>
+            <div>
+                <img className='h-24 w-24' src={logo} alt="" />
+                <p>{subHeadding}</p>
+            </div>
         </div>
     );
 };
