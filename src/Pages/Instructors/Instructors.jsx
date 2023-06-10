@@ -5,6 +5,8 @@ import { useState } from "react";
 import axios from "axios";
 import PopularInstructor from "../Home/Home/PopularInstructors/PopularInstructor";
 
+import banner from '../../assets/sheareBanner.avif'
+
 const Instructors = () => {
     const [instructors, setInstructors] = useState();
 
@@ -16,7 +18,7 @@ const Instructors = () => {
     return (
         <div className="">
             <Helmet><title>Sadiq | instructores</title></Helmet>
-            <ShearBanner title={'Our instructores'} subtitle='All instructires page'></ShearBanner>
+        <ShearBanner image={banner} title={'Our instructores'} subtitle='All instructires page'></ShearBanner>
             <h2 className="text-4xl font-bold text-center mt-24">All <span className="text-amber-400">Instructors</span></h2>
             <SectionTitle subHeadding={''}></SectionTitle>
 
