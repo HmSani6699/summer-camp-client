@@ -9,7 +9,7 @@ const PopularInstructors = () => {
 
     axios.get('http://localhost:5000/instructors')
         .then(res => {
-            setPopularInstructors(res.data);
+            setPopularInstructors(res.data.slice(0,6));
         })
 
     // console.log(PopularInstructors);
