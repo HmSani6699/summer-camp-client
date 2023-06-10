@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
+import Swal from "sweetalert2";
 
 const PopularClass = ({ classe, set }) => {
     const { image, name, InstructorName, Price, AvailableSeats,_id } = classe;
@@ -10,6 +11,10 @@ const PopularClass = ({ classe, set }) => {
     const handleCelectClass =id=>{
         console.log(id);
         if(!user){
+            Swal.fire({
+                icon: 'warning',
+                title: 'Please confirme the  user login',
+              })
             return navigat('/login',{replace:true})
         }
     }
