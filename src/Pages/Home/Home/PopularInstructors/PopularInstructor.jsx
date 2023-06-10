@@ -1,5 +1,3 @@
-import { FaArrowRight } from "react-icons/fa";
-
 
 const PopularInstructor = ({ instructor }) => {
     // console.log(instructor);
@@ -10,13 +8,10 @@ const PopularInstructor = ({ instructor }) => {
                 <figure><img className="h-[250px]" src={image} alt="Shoes" /></figure>
             </div>
             <div className="card-body ">
-                <div className="flex items-center justify-between">
+                <div className="">
                     <div >
                         <h2 className="card-title">{name}</h2>
                         <p><span className="font-bold">Email:</span> {email}</p>
-                    </div>
-                    <div className="border bg-amber-300 h-8 w-8 rounded-full flex items-center justify-center">
-                        <button><FaArrowRight></FaArrowRight></button>
                     </div>
                 </div>
             </div>
