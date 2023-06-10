@@ -1,8 +1,14 @@
 
 const PopularClass = ({ classe, set }) => {
-    const { image, name, InstructorName, Price, AvailableSeats } = classe;
+    const { image, name, InstructorName, Price, AvailableSeats,_id } = classe;
 
     // console.log(classe);
+
+    const handleCelectClass =id=>{
+        console.log(id);
+    }
+
+
     return (
         <div className="card  w-full border bg-base-100 shadow-xl">
             <div className="">
@@ -18,7 +24,7 @@ const PopularClass = ({ classe, set }) => {
                     <p><span className="font-bold">Price : </span><span className="text-amber-400 font-semibold">${Price}</span></p>
                 </div>
                 <div className="mt-4 ">
-                    <button className="btn btn-outline btn-warning w-full">Warning</button>
+                    <button onClick={()=>handleCelectClass(_id)} className="btn btn-outline btn-warning w-full">Select class</button>
                 </div>
             </div>
         </div>
