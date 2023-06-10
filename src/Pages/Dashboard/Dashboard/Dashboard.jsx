@@ -1,5 +1,5 @@
-import { Link, NavLink, Outlet } from "react-router-dom";
-import { FaBook, FaCalendarAlt, FaEnvelope, FaHome, FaListUl, FaShoppingBag, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
+import { NavLink, Outlet } from "react-router-dom";
+import { FaCalendarAlt, FaHome,  FaSchool,  FaUsers, FaWallet } from "react-icons/fa";
 
 const Dashboard = () => {
     return (
@@ -13,17 +13,16 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-amber-500 text-base-content">
+                    <ul className="menu p-4 w-80 h-full bg-slate-800 text-white">
                         {/* Sidebar content here */}
                         <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> User Home</NavLink></li>
-                        <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                        <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                        <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt>My Selected Classes</NavLink></li>
+                        <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> My Enrolled Classes</NavLink></li>
 
                         <div className="divider"></div>
                         <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                        <li><NavLink to="/manu"> Our Menu</NavLink></li>
-                        <li><NavLink to="/order/salad"><FaShoppingBag></FaShoppingBag> Order Food</NavLink></li>
-                        <li><NavLink to="/"><FaEnvelope></FaEnvelope>Contact</NavLink></li>
+                        <li><NavLink to="/classes"><FaSchool></FaSchool> Classes</NavLink></li>
+                        <li><NavLink to="/instructors"><FaUsers></FaUsers>Instructors</NavLink></li>
                     </ul>
 
                 </div>
