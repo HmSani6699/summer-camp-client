@@ -5,7 +5,7 @@ const Instructors = () => {
     return (
         <div>
              <Helmet><title>Sadiq | instructores</title></Helmet>
-            <ShearBanner></ShearBanner>
+            <ShearBanner title={'Our instructores'}></ShearBanner>
         </div>
     );
 };
