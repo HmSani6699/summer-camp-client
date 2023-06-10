@@ -1,6 +1,6 @@
 
-const PopularClass = ({ classe }) => {
-    const { image, name, InstructorName, Price } = classe;
+const PopularClass = ({ classe, set }) => {
+    const { image, name, InstructorName, Price, AvailableSeats } = classe;
 
     // console.log(classe);
     return (
@@ -12,10 +12,13 @@ const PopularClass = ({ classe }) => {
                 <div className="text-center">
                     <h2 className="text-2xl font-bold text-center ">{name}</h2>
                     <p><span className="font-bold"> Instructor Name:</span> {InstructorName}</p>
+                    {
+                        set === 'set' && <p><span className="font-bold"> Available seats:</span> {AvailableSeats}</p>
+                    }
                     <p><span className="font-bold">Price : </span><span className="text-amber-400 font-semibold">${Price}</span></p>
                 </div>
                 <div className="mt-4 ">
-                <button className="btn btn-outline btn-warning w-full">Warning</button>
+                    <button className="btn btn-outline btn-warning w-full">Warning</button>
                 </div>
             </div>
         </div>

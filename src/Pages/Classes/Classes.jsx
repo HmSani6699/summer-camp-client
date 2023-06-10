@@ -27,6 +27,7 @@ const Classes = () => {
                     classes?.map(classe=><PopularClass 
                     key={classe._id}
                     classe={classe}
+                    set='set'
                     ></PopularClass>)
                 }
             </div>
