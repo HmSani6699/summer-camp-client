@@ -8,7 +8,7 @@ const PopularClasses = () => {
 
     axios.get('http://localhost:5000/classes')
     .then(data=>{
-        setClasses(data.data);
+        setClasses(data.data.slice(0,6));
     })
 
     return (
