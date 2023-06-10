@@ -3,19 +3,24 @@ import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 
 const PopularClass = ({ classe, set }) => {
-    const { image, name, InstructorName, Price, AvailableSeats,_id } = classe;
-    const {user}=useAuth();
-    const navigat = useNavigate()
+    const { image, name, InstructorName, Price, AvailableSeats, _id } = classe;
+    const { user } = useAuth();
+    const navigat = useNavigate();
+
+    // if (AvailableSeats === 0) {
+    //     setDisabled(true)
+    // }
+
     // console.log(classe);
 
-    const handleCelectClass =id=>{
+    const handleCelectClass = id => {
         console.log(id);
-        if(!user){
+        if (!user) {
             Swal.fire({
                 icon: 'warning',
                 title: 'Please confirme the  user login',
-              })
-            return navigat('/login',{replace:true})
+            })
+            return navigat('/login', { replace: true })
         }
     }
 
@@ -35,7 +40,9 @@ const PopularClass = ({ classe, set }) => {
                     <p><span className="font-bold">Price : </span><span className="text-amber-400 font-semibold">${Price}</span></p>
                 </div>
                 <div className="mt-4 ">
-                    <button onClick={()=>handleCelectClass(_id)} className="btn btn-outline btn-warning w-full">Select class</button>
+                    {
+                        AvailableSeats === 0 ? <button disabled onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button> : <button onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button>
+                    }
                 </div>
             </div>
         </div>
