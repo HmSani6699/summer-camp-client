@@ -1,11 +1,17 @@
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../../../Hooks/useAuth";
 
 const PopularClass = ({ classe, set }) => {
     const { image, name, InstructorName, Price, AvailableSeats,_id } = classe;
-
+    const {user}=useAuth();
+    const navigat = useNavigate()
     // console.log(classe);
 
     const handleCelectClass =id=>{
         console.log(id);
+        if(!user){
+            return navigat('/login',{replace:true})
+        }
     }
 
 
