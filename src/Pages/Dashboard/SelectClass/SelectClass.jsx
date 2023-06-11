@@ -17,22 +17,24 @@ const SelectClass = () => {
 
     return (
         <div className="">
-            <Helmet><title>Bistro boss | My card</title></Helmet>
-            <SectionTitle hedding={'WANNA ADD MORE?'} subHadding={'---My Cart---'}></SectionTitle>
-            <div className="w-[800px] p-7 bg-slate-800 text-white">
+            <Helmet><title>Sadiq| SelectClass</title></Helmet>
+            <p className="pt-5"></p>
+            <SectionTitle></SectionTitle>
+            <h2 className="text-3xl font-bold text-center  mb-12">Select the all <span className="text-amber-400">Class</span> list</h2>
+            <div className="w-[800px] p-7 bg-[#80808017] ">
                 <div className="lg:flex items-center justify-between mb-8">
-                    <h2 className="text-2xl font-bold uppercase">Total Select: {loadClass?.length}</h2>
-                    <h2 className="text-2xl font-bold uppercase">total price: ${sum}</h2>
+                    <h2 className="text-2xl font-bold uppercase">Total Selects class: <span className="text-amber-400">{loadClass?.length}</span></h2>
+                    <h2 className="text-2xl font-bold uppercase">total price: <span className="text-amber-400">${sum}</span></h2>
                 </div>
                 <table className="table lg:w-full overflow-x-auto">
                     {/* head */}
                     <thead>
                         <tr>
-                            <th className="bg-[#D1A054] text-white"> #</th>
-                            <th className="bg-[#D1A054] text-white">ITEM IMAGE</th>
-                            <th className="bg-[#D1A054] text-white">ITEM NAME</th>
-                            <th className="bg-[#D1A054] text-white">PRICE</th>
-                            <th className="bg-[#D1A054] text-white">ACTION</th>
+                            <th className="bg-slate-800 rounded-tl-lg text-white"> #</th>
+                            <th className="bg-slate-800 text-white">ITEM IMAGE</th>
+                            <th className="bg-slate-800 text-white">ITEM NAME</th>
+                            <th className="bg-slate-800 text-white">PRICE</th>
+                            <th className="bg-slate-800 rounded-tr-lg text-white">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>

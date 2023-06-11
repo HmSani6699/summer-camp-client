@@ -1,7 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaBible, FaHome, FaSchool, FaTerminal, FaUsers} from "react-icons/fa";
+import { FaBible, FaHome, FaSchool, FaTerminal, FaUsers } from "react-icons/fa";
+import useAuth from "../../../Hooks/useAuth";
 
 const Dashboard = () => {
+
+    const { user } = useAuth();
+    console.log(user);
+
     return (
         <div className="w-full">
             <div className="drawer lg:drawer-open">
@@ -14,7 +19,13 @@ const Dashboard = () => {
                 <div className="drawer-side ">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-[100%] bg-slate-800 text-white">
-                        <h2 className="font-bold text-2xl lg:ml-4  mt-5 mb-10"><span className="text-[#f59f0bf1] ">Sadiq</span> Web</h2>
+                        {/* <h2 className="font-bold text-2xl lg:ml-4  mt-5 mb-10"><span className="text-[#f59f0bf1] ">Sadiq</span> Web</h2> */}
+                        <div className="avatar flex justify-center mt-8 mb-8">
+                            <div className="w-14 ring ring-amber-500  rounded-full">
+                                <img src={user?.photoURL} />
+                            </div>
+                        </div>
+                        <p className="mb-10 text-center">{user?.email}</p>
                         {/* Sidebar content here */}
                         <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> User Home</NavLink></li>
                         <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
@@ -29,7 +40,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
-        
+
     );
 };
 
