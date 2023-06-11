@@ -8,18 +8,10 @@ const PopularClass = ({ classe, set }) => {
     const { user } = useAuth();
     const navigat = useNavigate();
 
-    // console.log(classe);
-
+    
     const handleCelectClass = () => {
 
-        // if (!user) {
-        //     Swal.fire({
-        //         icon: 'warning',
-        //         title: 'Please confirme the  user login',
-        //     })
-        //     return navigat('/login', { replace: true })
-        // }
-
+        const selectClass = {classesId:_id,name,image,InstructorName,Price,AvailableSeats,email:user?.email}
 
         if (user && user?.email) {
             fetch('http://localhost:5000/class', {
@@ -27,7 +19,7 @@ const PopularClass = ({ classe, set }) => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(classe)
+                body: JSON.stringify(selectClass)
             })
                 .then(res => res.json())
                 .then(data => {
