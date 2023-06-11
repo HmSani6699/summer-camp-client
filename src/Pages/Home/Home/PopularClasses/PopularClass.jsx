@@ -35,7 +35,7 @@ const PopularClass = ({ classe, set }) => {
                     if (data?.insertedId) {
                         Swal.fire({
                             icon: 'success',
-                            title: 'Class add success full !!',
+                            title: 'Class select success full !!',
                         })
                     }
 
