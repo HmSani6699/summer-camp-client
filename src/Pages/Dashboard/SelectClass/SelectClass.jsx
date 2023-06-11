@@ -31,9 +31,9 @@ const SelectClass = () => {
                     <thead>
                         <tr>
                             <th className="bg-slate-800 rounded-tl-lg text-white"> #</th>
-                            <th className="bg-slate-800 text-white">ITEM IMAGE</th>
-                            <th className="bg-slate-800 text-white">ITEM NAME</th>
+                            <th className="bg-slate-800 text-white">CLASS</th>
                             <th className="bg-slate-800 text-white">PRICE</th>
+                            <th className="bg-slate-800 text-white">PAY</th>
                             <th className="bg-slate-800 rounded-tr-lg text-white">ACTION</th>
                         </tr>
                     </thead>
@@ -42,14 +42,17 @@ const SelectClass = () => {
                             loadClass?.map((item, i) => <tr key={item._id}>
                                 <th>{i + 1}</th>
                                 <td>
-                                    <div className="avatar">
-                                        <div className="mask mask-squircle w-12 h-12">
-                                            <img src={item.image} alt="Avatar Tailwind CSS Component" />
+                                    <div className="flex items-center gap-3">
+                                        <div className="avatar">
+                                            <div className="w-20 rounded">
+                                                <img src={item.image} alt="Avatar Tailwind CSS Component" />
+                                            </div>
                                         </div>
+                                        <h2 className="font-semibold">{item.name}</h2>
                                     </div>
                                 </td>
-                                <td><h2 className="font-semibold">{item.name}</h2></td>
-                                <td><p className="text-end">${item.Price}</p></td>
+                                <td><p className="">${item.Price}</p></td>
+                                <td><button className="btn btn-sm bg-amber-400">Pay</button></td>
                                 <th>
                                     <button onClick={() => handlaCartDelete(item._id)} className="btn btn-circle h-3 bg-red-800 text-white">
                                         <FaTrashAlt></FaTrashAlt>
