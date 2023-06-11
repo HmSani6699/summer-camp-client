@@ -2,15 +2,40 @@ import { FaTrashAlt } from "react-icons/fa";
 import useClass from "../../../Hooks/useClass";
 import SectionTitle from "../../../Component/SectioneTitle/SectionTitle";
 import { Helmet } from "react-helmet";
+import Swal from "sweetalert2";
 
 const SelectClass = () => {
 
     const [loadClass] = useClass();
-    console.log(loadClass);
 
 
-    const handlaCartDelete = () => {
+    const handlaCartDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/class/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
 
+            }
+        })
     }
 
     const sum = loadClass?.reduce((a, b) => a + b?.Price, 0)
