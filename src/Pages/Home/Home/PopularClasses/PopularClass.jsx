@@ -10,14 +10,53 @@ const PopularClass = ({ classe, set }) => {
 
     // console.log(classe);
 
-    const handleCelectClass = id => {
-        console.log(id);
-        if (!user) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Please confirme the  user login',
+    const handleCelectClass = () => {
+
+        // if (!user) {
+        //     Swal.fire({
+        //         icon: 'warning',
+        //         title: 'Please confirme the  user login',
+        //     })
+        //     return navigat('/login', { replace: true })
+        // }
+
+
+        if (user && user?.email) {
+            fetch('http://localhost:5000/class', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(classe)
             })
-            return navigat('/login', { replace: true })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data);
+                    if (data?.insertedId) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Class add success full !!',
+                        })
+                    }
+
+                })
+        }
+        else {
+            Swal.fire({
+                title: 'Please login to select the class',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Log in'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Please login!',
+                    )
+                    navigat('/login', { state: { from: location } })
+                }
+            })
         }
     }
 
@@ -41,7 +80,7 @@ const PopularClass = ({ classe, set }) => {
                         AvailableSeats === 0 ? <>
                             <button disabled onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button>
                             <p className="text-red-500 flex items-center mt-3 gap-2"><FaRegTimesCircle></FaRegTimesCircle> There are no seats available !!</p>
-                        </> : <button onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button>
+                        </> : <button onClick={() => handleCelectClass()} className="btn  btn-warning w-full">Select class</button>
                     }
                 </div>
             </div>

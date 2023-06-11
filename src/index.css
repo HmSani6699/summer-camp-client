@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .drawer-side a.active {
-    color: #f59e0b;
+    color: #f59f0bf1;
 }
 .drawer-side li:hover {
     background-color: #a5a3a382;
