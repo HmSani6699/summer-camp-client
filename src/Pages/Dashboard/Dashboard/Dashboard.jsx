@@ -11,9 +11,9 @@ const Dashboard = () => {
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
-                <div className="drawer-side">
+                <div className="drawer-side ">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 h-full bg-slate-800 text-white">
+                    <ul className="menu p-4 w-80 h-[100%] bg-slate-800 text-white">
                         <h2 className="font-bold text-2xl lg:ml-4  mt-5 mb-10"><span className="text-[#f59f0bf1] ">Sadiq</span> Web</h2>
                         {/* Sidebar content here */}
                         <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> User Home</NavLink></li>
@@ -29,6 +29,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+        
     );
 };
 
