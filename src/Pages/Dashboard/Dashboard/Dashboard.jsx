@@ -17,7 +17,7 @@ const Dashboard = () => {
                         <h2 className="font-bold text-2xl lg:ml-4  mt-5 mb-10"><span className="text-[#f59f0bf1] ">Sadiq</span> Web</h2>
                         {/* Sidebar content here */}
                         <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> User Home</NavLink></li>
-                        <li><NavLink to="/dashboard/reservations"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
+                        <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
                         <li><NavLink to="/dashboard/history"><FaTerminal className="text-[20px]"></FaTerminal> My Enrolled Classes</NavLink></li>
 
                         <div className="border my-8 border-amber-500"></div>

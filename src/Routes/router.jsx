@@ -10,6 +10,7 @@ import Instructors from "../Pages/Instructors/Instructors";
 import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import SelectClass from "../Pages/Dashboard/SelectClass/SelectClass";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path:'userHome',
                 element:<UserHome></UserHome>
+            },
+            {
+                path:'selectClass',
+                element:<SelectClass></SelectClass>
             }
         ]
     },
