@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const SelectClass = () => {
 
-    const [loadClass] = useClass();
+    const [loadClass,refetch] = useClass();
 
 
     const handlaCartDelete = (id) => {
@@ -26,6 +26,7 @@ const SelectClass = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
+                            refetch()
                             Swal.fire(
                                 'Deleted!',
                                 'Your class has been deleted.',
