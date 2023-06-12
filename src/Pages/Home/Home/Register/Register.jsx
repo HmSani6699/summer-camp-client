@@ -30,12 +30,26 @@ const Register = () => {
                 const user = result.user
                 updateUserProfule(user, name, photo)
                     .then(() => {
-                        navigate(from, { replace: true });
-                        reset()
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Registation success full !!',
+                        const loggedUser = { name: user?.displayName, email: user?.email }
+
+                        fetch(`http://localhost:5000/users`, {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(loggedUser)
                         })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data);
+                                navigate(from, { replace: true });
+                                reset()
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Registation success full !!',
+                                })
+
+                            })
                     })
                     .catch(error => {
                         console.log(error);

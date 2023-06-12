@@ -26,7 +26,7 @@ const Dashboard = () => {
                         </div>
                         <p className="mb-10 text-center">{user?.email}</p>
                         {/* Sidebar content here */}
-                        <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> User Home</NavLink></li>
+                        <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
                         <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
                         <li><NavLink to="/dashboard/history"><FaTerminal className="text-[20px]"></FaTerminal> My Enrolled Classes</NavLink></li>
 
