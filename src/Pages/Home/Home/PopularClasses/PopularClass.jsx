@@ -2,11 +2,16 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import { FaRegTimesCircle } from "react-icons/fa";
+import useAdmin from "../../../../Hooks/useAdmin";
+import useInstructor from "../../../../Hooks/useInstructor";
 
 const PopularClass = ({ classe, set }) => {
     const { image, name, InstructorName, Price, AvailableSeats, _id } = classe;
     const { user } = useAuth();
     const navigat = useNavigate();
+
+    const [isAdmin]=useAdmin();
+    const [isInstructor]=useInstructor()
 
     
     const handleCelectClass = () => {
@@ -69,7 +74,7 @@ const PopularClass = ({ classe, set }) => {
                 </div>
                 <div className="mt-4 ">
                     {
-                        AvailableSeats === 0 ? <>
+                        AvailableSeats === 0 ||isAdmin||isInstructor ? <>
                             <button disabled onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button>
                             <p className="text-red-500 flex items-center mt-3 gap-2"><FaRegTimesCircle></FaRegTimesCircle> There are no seats available !!</p>
                         </> : <button onClick={() => handleCelectClass()} className="btn  btn-warning w-full">Select class</button>
