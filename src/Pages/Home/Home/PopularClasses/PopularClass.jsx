@@ -74,7 +74,7 @@ const PopularClass = ({ classe, set }) => {
                 </div>
                 <div className="mt-4 ">
                     {
-                        AvailableSeats === 0 ||isAdmin||isInstructor ? <>
+                        AvailableSeats === 0 ||isAdmin?.admin||isInstructor?.instructor ? <>
                             <button disabled onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button>
                             <p className="text-red-500 flex items-center mt-3 gap-2"><FaRegTimesCircle></FaRegTimesCircle> There are no seats available !!</p>
                         </> : <button onClick={() => handleCelectClass()} className="btn  btn-warning w-full">Select class</button>
