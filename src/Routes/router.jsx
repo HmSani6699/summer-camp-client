@@ -11,6 +11,7 @@ import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import SelectClass from "../Pages/Dashboard/SelectClass/SelectClass";
+import PrivetRouts from "./PrivetRouts/PrivetRouts";
 
 
 const router = createBrowserRouter([
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivetRouts><Dashboard></Dashboard></PrivetRouts>,
         children: [
             {
                 path:'userHome',
