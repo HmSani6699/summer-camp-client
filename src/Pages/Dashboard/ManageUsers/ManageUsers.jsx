@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import SectionTitle from "../../../Component/SectioneTitle/SectionTitle";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
@@ -13,11 +13,26 @@ const ManageUsers = () => {
         }
     })
 
-    console.log(users);
 
     // UPDATE THE USER
     const handleMackAdmin = user => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`http://localhost:5000/users/admin/${user?._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        icon: 'success',
+                        title: `${user.name} add to  an admin`,
+                    })
+                }
+            })
+    }
+
+    const handleMackInstructor  = user => {
+        fetch(`http://localhost:5000/users/instructor/${user?._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -91,11 +106,22 @@ const ManageUsers = () => {
                                 <td><h2 className="font-semibold">{user.name}</h2></td>
                                 <td><h2 >{user.email}</h2></td>
                                 <th>
-                                    {
-                                        user.rol === 'admin' ? <h2 className="text-[#D1A054] font-semibold">Admin</h2> : <button onClick={() => handleMackAdmin(user)} className="btn btn-circle h-3 bg-[#D1A054] text-white">
-                                            <FaUsers className="text-2xl"></FaUsers>
-                                        </button>
-                                    }
+                                    <div>
+                                        <div className="mb-2">
+                                            {
+                                                user.rol === 'admin' ? <h2 className="text-[#D1A054] font-semibold">Admin</h2> : <button onClick={() => handleMackAdmin(user)} className="btn w-full btn-sm h-3 bg-amber-400 ">
+                                                    Admin
+                                                </button>
+                                            }
+                                        </div>
+                                        <div>
+                                            {
+                                                user.rol === 'instructor ' ? <h2 className="text-[#D1A054] font-semibold">Instructor </h2> : <button onClick={() =>handleMackInstructor(user)} className="btn w-full btn-sm h-3 bg-amber-400 ">
+                                                    Instructors
+                                                </button>
+                                            }
+                                        </div>
+                                    </div>
                                 </th>
                                 <th>
                                     <button onClick={() => handleDeleteUser(user._id)} className="btn btn-circle h-3 bg-red-800 text-white">
