@@ -60,7 +60,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 {user && <div className="avatar online lg:mr-4">
                     <div className="w-12 h-12 rounded-full ring ring-[#fbbc24e3] ring-offset-base-100 ring-offset-2">
-                        <img src={user?.photoURL} />
+                        <img title={`${user?.displayName}`} src={user?.photoURL} />
                     </div>
                 </div>}
                 {

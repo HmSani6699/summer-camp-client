@@ -3,6 +3,8 @@ import { FaBible, FaHome, FaSchool, FaTerminal, FaUsers } from "react-icons/fa";
 import useAuth from "../../../Hooks/useAuth";
 import useAdmin from "../../../Hooks/useAdmin";
 
+
+
 const Dashboard = () => {
     const { user } = useAuth();
     const [isAdmin] = useAdmin();
@@ -27,9 +29,10 @@ const Dashboard = () => {
                                 <img src={user?.photoURL} />
                             </div>
                         </div>
+                        <h2 className="text-1xl font-bold text-center">{user?.displayName}</h2>
                         <p className="mb-10 text-center">{user?.email}</p>
                         {
-                            isAdmin ? <><li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Admin Home</NavLink></li>
+                            isAdmin?.admin ? <><li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Admin Home</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
                             </> : <> <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
                                 <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
