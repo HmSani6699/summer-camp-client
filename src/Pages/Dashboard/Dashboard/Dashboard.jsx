@@ -4,11 +4,10 @@ import useAuth from "../../../Hooks/useAuth";
 import useAdmin from "../../../Hooks/useAdmin";
 
 const Dashboard = () => {
-    const [isAdmin] = useAdmin()
-
-    console.log(isAdmin);
-
     const { user } = useAuth();
+    const [isAdmin] = useAdmin();
+  
+    console.log(isAdmin);
 
     return (
         <div className="w-full">
@@ -30,8 +29,7 @@ const Dashboard = () => {
                         </div>
                         <p className="mb-10 text-center">{user?.email}</p>
                         {
-                            isAdmin ? <>
-                                <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
+                            isAdmin ? <><li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Admin Home</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
                             </> : <> <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
                                 <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
