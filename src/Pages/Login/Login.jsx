@@ -56,8 +56,7 @@ const Login = () => {
                     body: JSON.stringify(loggedUser)
                 })
                     .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
+                    .then(() => {
                         navigate(from, { replace: true });
                     })
                     navigate(from, { replace: true });

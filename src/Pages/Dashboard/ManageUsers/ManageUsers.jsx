@@ -41,7 +41,7 @@ const ManageUsers = () => {
                     refetch()
                     Swal.fire({
                         icon: 'success',
-                        title: `${user.name} add to  an admin`,
+                        title: `${user.name} add to  an Instructor`,
                     })
                 }
             })
@@ -79,7 +79,7 @@ const ManageUsers = () => {
 
 
     return (
-        <div className="h-screen">
+        <div className="">
             {/*  SECTION TITLE IN IFREME  */}
             <Helmet><title>Sadiq | All users</title></Helmet>
             {/*  SECTION TITLE  */}
@@ -109,14 +109,14 @@ const ManageUsers = () => {
                                     <div>
                                         <div className="mb-2">
                                             {
-                                                user.rol === 'admin' ? <h2 className="text-[#D1A054] font-semibold">Admin</h2> : <button onClick={() => handleMackAdmin(user)} className="btn w-full btn-sm h-3 bg-amber-400 ">
+                                                user.rol === 'admin' ? <h2 className="text-[#D1A054] text-center font-semibold">Admin</h2> : <button onClick={() => handleMackAdmin(user)} className="btn w-full btn-sm h-3 bg-amber-400 ">
                                                     Admin
                                                 </button>
                                             }
                                         </div>
                                         <div>
                                             {
-                                                user.rol === 'instructor ' ? <h2 className="text-[#D1A054] font-semibold">Instructor </h2> : <button onClick={() =>handleMackInstructor(user)} className="btn w-full btn-sm h-3 bg-amber-400 ">
+                                                user.rol === 'instructor' ? <h2 className="text-[#D1A054] text-center font-semibold">Instructor </h2> : <button onClick={() =>handleMackInstructor(user)} className="btn w-full btn-sm h-3 bg-amber-400 ">
                                                     Instructors
                                                 </button>
                                             }
