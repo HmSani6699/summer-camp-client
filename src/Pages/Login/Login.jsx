@@ -1,4 +1,4 @@
-import { FaEye, FaEyeSlash, FaFacebookF, FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash,FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/login.png';
 import useAuth from "../../Hooks/useAuth";
@@ -46,9 +46,9 @@ const Login = () => {
         googleLogin()
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 const loggedUser = { name: user?.displayName, email: user?.email }
-                fetch(`http://localhost:5000/user`, {
+                fetch(`http://localhost:5000/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -60,7 +60,7 @@ const Login = () => {
                         console.log(data);
                         navigate(from, { replace: true });
                     })
-                navigate(from, { replace: true });
+                    navigate(from, { replace: true });
             })
             .catch(error => console.log(error))
 
@@ -117,7 +117,6 @@ const Login = () => {
                             <div className="divider">Or sign in with</div>
                             <div className='flex items-center justify-center gap-5 mt-6 '>
                                 <button onClick={handleGoogleLogin} className="btn btn-circle btn-outline"><FaGoogle></FaGoogle></button>
-                                <button className="btn btn-circle btn-outline"><FaFacebookF></FaFacebookF></button>
                             </div>
                         </div>
 
