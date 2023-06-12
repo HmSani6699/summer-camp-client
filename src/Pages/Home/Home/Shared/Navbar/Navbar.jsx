@@ -13,7 +13,6 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOutUser()
         .then(()=>{
-            console.log('ami runng asi');
             navigate('/login', { replace: true });
             Swal.fire({
                 icon: 'success',

@@ -1,12 +1,14 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBible, FaHome, FaSchool, FaTerminal, FaUsers } from "react-icons/fa";
 import useAuth from "../../../Hooks/useAuth";
+import useAdmin from "../../../Hooks/useAdmin";
 
 const Dashboard = () => {
+    const [isAdmin] = useAdmin()
+
+    console.log(isAdmin);
 
     const { user } = useAuth();
-
-    const isAdmin = true;
 
     return (
         <div className="w-full">
@@ -29,10 +31,9 @@ const Dashboard = () => {
                         <p className="mb-10 text-center">{user?.email}</p>
                         {
                             isAdmin ? <>
-                                <li><NavLink to="/dashboard/home"><FaHome></FaHome> ADMIN HOME</NavLink></li>
+                                <li><NavLink to="/dashboard/home"><FaHome></FaHome> Admin Home</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
-                            </> : <>
-                                <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
+                            </> : <> <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
                                 <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
                                 <li><NavLink to="/dashboard/history"><FaTerminal className="text-[20px]"></FaTerminal> My Enrolled Classes</NavLink></li>
                             </>
