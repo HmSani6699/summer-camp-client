@@ -10,7 +10,6 @@ const Dashboard = () => {
     const { user } = useAuth();
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
-    console.log(isInstructor?.instructor);
 
     return (
         <div className="w-full">
@@ -38,6 +37,7 @@ const Dashboard = () => {
                                 <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
                             </> : isInstructor?.instructor ? <>
                                 <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Instructor Home</NavLink></li>
+                                <li><NavLink to="/dashboard/addClass"><FaHome></FaHome> Add class</NavLink></li>
                             </> :
                                 <>
                                     <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
