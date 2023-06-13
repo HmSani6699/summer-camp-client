@@ -13,6 +13,7 @@ import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import SelectClass from "../Pages/Dashboard/SelectClass/SelectClass";
 import PrivetRouts from "./PrivetRouts/PrivetRouts";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -47,16 +48,20 @@ const router = createBrowserRouter([
         element: <PrivetRouts><Dashboard></Dashboard></PrivetRouts>,
         children: [
             {
-                path:'userHome',
-                element:<UserHome></UserHome>
+                path: 'userHome',
+                element: <UserHome></UserHome>
             },
             {
-                path:'allusers',
-                element:<ManageUsers></ManageUsers>
+                path: 'payment',
+                element:<Payment></Payment>
             },
             {
-                path:'selectClass',
-                element:<SelectClass></SelectClass>
+                path: 'allusers',
+                element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'selectClass',
+                element: <SelectClass></SelectClass>
             }
         ]
     },

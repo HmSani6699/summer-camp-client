@@ -3,6 +3,7 @@ import useClass from "../../../Hooks/useClass";
 import SectionTitle from "../../../Component/SectioneTitle/SectionTitle";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const SelectClass = () => {
 
@@ -78,7 +79,7 @@ const SelectClass = () => {
                                     </div>
                                 </td>
                                 <td><p className="">${item.Price}</p></td>
-                                <td><button className="btn btn-sm bg-amber-400">Pay</button></td>
+                                <td><Link to="/dashboard/payment"><button className="btn btn-sm bg-amber-400">Pay</button></Link></td>
                                 <th>
                                     <button onClick={() => handlaCartDelete(item._id)} className="btn btn-circle h-3 bg-red-800 text-white">
                                         <FaTrashAlt></FaTrashAlt>

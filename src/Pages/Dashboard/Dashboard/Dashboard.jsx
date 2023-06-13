@@ -33,12 +33,17 @@ const Dashboard = () => {
                         <h2 className="text-1xl font-bold text-center">{user?.displayName}</h2>
                         <p className="mb-5 text-center">{user?.email}</p>
                         {
-                            isAdmin?.admin ? <><li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Admin Home</NavLink></li>
+                            isAdmin?.admin ? <>
+                                <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Admin Home</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
-                            </> : <> <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
-                                <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
-                                <li><NavLink to="/dashboard/history"><FaTerminal className="text-[20px]"></FaTerminal> My Enrolled Classes</NavLink></li>
-                            </>
+                            </> : isInstructor?.instructor ? <>
+                                <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Instructor Home</NavLink></li>
+                            </> :
+                                <>
+                                    <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
+                                    <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
+                                    <li><NavLink to="/dashboard/history"><FaTerminal className="text-[20px]"></FaTerminal> My Enrolled Classes</NavLink></li>
+                                </>
                         }
 
                         <div className="border my-8 border-amber-500"></div>
