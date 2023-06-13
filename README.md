@@ -14,4 +14,4 @@
 ### - react slider
 ### - reat 
 
-### Private Repo Link: [https://assignment11-67a05.web.app/](https://assignment11-67a05.web.app)
+### Private Repo Link: [https://assigment12.web.app](https://assigment12.web.app)
