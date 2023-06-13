@@ -76,7 +76,9 @@ const PopularClass = ({ classe, set }) => {
                     {
                         AvailableSeats === 0 ||isAdmin?.admin||isInstructor?.instructor ? <>
                             <button disabled onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button>
-                            <p className="text-red-500 flex items-center mt-3 gap-2"><FaRegTimesCircle></FaRegTimesCircle> There are no seats available !!</p>
+                            {
+                                isAdmin?.admin||isInstructor?.instructor ?'':<p className="text-red-500 flex items-center mt-3 gap-2"><FaRegTimesCircle></FaRegTimesCircle> There are no seats available !!</p> 
+                            }
                         </> : <button onClick={() => handleCelectClass()} className="btn  btn-warning w-full">Select class</button>
                     }
                 </div>
