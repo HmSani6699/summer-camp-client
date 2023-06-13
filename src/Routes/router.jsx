@@ -14,6 +14,7 @@ import SelectClass from "../Pages/Dashboard/SelectClass/SelectClass";
 import PrivetRouts from "./PrivetRouts/PrivetRouts";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import AdminRouts from "./AdminRouts/AdminRouts";
 
 
 const router = createBrowserRouter([
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'allusers',
-                element: <ManageUsers></ManageUsers>
+                element:<AdminRouts> <ManageUsers></ManageUsers></AdminRouts>
             },
             {
                 path: 'selectClass',
