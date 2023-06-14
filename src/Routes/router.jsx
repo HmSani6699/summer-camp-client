@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/selectClass/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-12-server-hmsani6699.vercel.app/selectClass/${params.id}`)
             },
             {
                 path: 'paymentHistory',
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
             {
                 path:'enrolledClass/:email',
                 element:<EnrolledClass></EnrolledClass>,
-                loader: ({ params }) => fetch(`http://localhost:5000/payments/${params.email}`)
+                loader: ({ params }) => fetch(`https://assignment-12-server-hmsani6699.vercel.app/payments/${params.email}`)
             },
             {
                 path: 'allusers',

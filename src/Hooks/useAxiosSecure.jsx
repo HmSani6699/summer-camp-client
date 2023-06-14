@@ -5,11 +5,12 @@ import useAuth from './useAuth';
 // import useAuth from './useAuth';
 
   const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000', 
+    baseURL: 'https://assignment-12-server-hmsani6699.vercel.app', 
   });
 
 const useAxiosSecure = () => {
   const { logOutUser } = useAuth(); 
+  
   const navigate = useNavigate(); 
 
   useEffect(() => {

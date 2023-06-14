@@ -19,7 +19,7 @@ import '@smastrom/react-rating/style.css'
 const Feedback = () => {
   const [reviews, setReviews] = useState();
 
-  axios.get('http://localhost:5000/review')
+  axios.get('https://assignment-12-server-hmsani6699.vercel.app/review')
     .then(data => {
       setReviews(data.data)
     })

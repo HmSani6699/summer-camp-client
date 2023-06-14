@@ -32,7 +32,7 @@ const Register = () => {
                     .then(() => {
                         const loggedUser = { name: user?.displayName, email: user?.email }
 
-                        fetch(`http://localhost:5000/users`, {
+                        fetch(`https://assignment-12-server-hmsani6699.vercel.app/users`, {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -76,7 +76,7 @@ const Register = () => {
                 const user = result.user;
                 // console.log(user);
                 const loggedUser = { name: user?.displayName, email: user?.email }
-                fetch(`http://localhost:5000/users`, {
+                fetch(`https://assignment-12-server-hmsani6699.vercel.app/users`, {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

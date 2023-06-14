@@ -19,7 +19,7 @@ const PopularClass = ({ classe, set }) => {
         const selectClass = {classesId:_id,name,image,instructor,price,seats,email:user?.email}
 
         if (user && user?.email) {
-            fetch('http://localhost:5000/selectClass', {
+            fetch('https://assignment-12-server-hmsani6699.vercel.app/selectClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

@@ -9,7 +9,7 @@ const useClass = () => {
         queryKey: ['class', user?.email],
         enabled: !!user?.email,
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/class?email=${user?.email}`);
+            const res = await fetch(`https://assignment-12-server-hmsani6699.vercel.app/class?email=${user?.email}`);
             return res.json()
         },
 

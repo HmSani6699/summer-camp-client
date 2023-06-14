@@ -1,11 +1,11 @@
 import React from 'react';
-import useAxiosSecure from '../../../Hooks/UseAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../Hooks/useAuth';
 
 import Swal from 'sweetalert2';
 import MyClassCard from '../Dashboard/MyClassCard/MyClassCard';
 import SectionTitle from '../../../Component/SectioneTitle/SectionTitle';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 const MyClass = () => {
   const { loading, user } = useAuth();
   const [axiosSecure] = useAxiosSecure();
@@ -31,7 +31,7 @@ const MyClass = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myClass/${id}`, {
+        fetch(`https://assignment-12-server-hmsani6699.vercel.app/myClass/${id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

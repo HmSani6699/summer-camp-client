@@ -10,7 +10,7 @@ import PopularClass from "../Home/Home/PopularClasses/PopularClass";
 const Classes = () => {
     const [classes, setClasses] = useState();
 
-    axios.get('http://localhost:5000/classes')
+    axios.get('https://assignment-12-server-hmsani6699.vercel.app/classes')
         .then(res => {
             setClasses(res.data);
         })

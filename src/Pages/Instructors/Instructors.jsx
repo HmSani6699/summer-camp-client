@@ -10,7 +10,7 @@ import banner from '../../assets/sheareBanner.avif'
 const Instructors = () => {
     const [instructors, setInstructors] = useState();
 
-    axios.get('http://localhost:5000/instructors')
+    axios.get('https://assignment-12-server-hmsani6699.vercel.app/instructors')
         .then(res => {
             setInstructors(res.data);
         })

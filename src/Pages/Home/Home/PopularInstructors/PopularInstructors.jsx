@@ -7,7 +7,7 @@ import PopularInstructor from "./PopularInstructor";
 const PopularInstructors = () => {
     const [PopularInstructors, setPopularInstructors] = useState();
 
-    axios.get('http://localhost:5000/instructors')
+    axios.get('https://assignment-12-server-hmsani6699.vercel.app/instructors')
         .then(res => {
             setPopularInstructors(res.data.slice(0,6));
         })

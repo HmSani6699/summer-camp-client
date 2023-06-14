@@ -4,7 +4,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 // import "./CheckOutForm.css";
 import useAuth from "../../../Hooks/useAuth";
-import useAxiosSecure from "../../../Hooks/UseAxiosSecure";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 
 
@@ -86,7 +86,7 @@ const CheckoutForm = ({price, id, selectClassId, name }) => {
 
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
-        fetch(`http://localhost:5000/all-classes/seats/${selectClassId}`, {
+        fetch(`https://assignment-12-server-hmsani6699.vercel.app/all-classes/seats/${selectClassId}`, {
           method: "PATCH",
         })
           .then((res) => res.json())

@@ -6,7 +6,7 @@ import PopularClass from "./PopularClass";
 const PopularClasses = () => {
     const[classes,setClasses]=useState()
 
-    axios.get('http://localhost:5000/classes')
+    axios.get('https://assignment-12-server-hmsani6699.vercel.app/classes')
     .then(data=>{
         setClasses(data.data.slice(0,6));
     })
