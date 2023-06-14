@@ -5,6 +5,7 @@ import useAuth from "../../../Hooks/useAuth";
 
 import useAxiosSecure from "../../../Hooks/UseAxiosSecure";
 import PaymentHistoryCard from "./PaymentHistoryCard";
+import SectionTitle from "../../../Component/SectioneTitle/SectionTitle";
 
 const PaymentHistory = () => {
   const { loading,user } = useAuth();
@@ -20,7 +21,8 @@ const PaymentHistory = () => {
    
   return (
     <div>
-      <h2 className='text-center text-3xl my-4  text-blue-800'> Payment History  </h2>
+      <SectionTitle></SectionTitle>
+      <h2 className='text-center text-3xl my-7 font-bold'> <span className="text-amber-400">Payment</span> History  </h2>
  <div className=''>
 {
 payments.map(payment=><PaymentHistoryCard

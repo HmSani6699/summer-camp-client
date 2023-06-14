@@ -120,12 +120,9 @@ console.log(data.insertedId);
   if(data?.insertedId){
   reset();
   Swal.fire({
-    position: 'top-end',
     icon: 'success',
-    title: 'MenuItem added successful',
-    showConfirmButton: false,
-    timer: 1500
-  })
+    title: 'Class add success full !!',
+})
   }
 })
 

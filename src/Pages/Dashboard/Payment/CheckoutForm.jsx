@@ -102,7 +102,7 @@ const CheckoutForm = ({price, id, selectClassId, name }) => {
     }
   }
   return (
-    <div className='mb-20 border border-blue-600 p-6 bg-blue-600'>
+    <div className='bg-[#80808017] p-20 w-[700px]'>
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
@@ -120,7 +120,7 @@ const CheckoutForm = ({price, id, selectClassId, name }) => {
             },
           }}
         />
-        <button type='submit' disabled={!stripe}>
+        <button type='submit' className="btn-warning btn mt-10 w-2/3" disabled={!stripe}>
           Pay
         </button>
       </form>
