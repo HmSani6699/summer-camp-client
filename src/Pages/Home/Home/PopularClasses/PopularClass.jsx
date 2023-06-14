@@ -6,7 +6,7 @@ import useAdmin from "../../../../Hooks/useAdmin";
 import useInstructor from "../../../../Hooks/useInstructor";
 
 const PopularClass = ({ classe, set }) => {
-    const { image, name, InstructorName, Price, AvailableSeats, _id } = classe;
+    const { image, name, instructor, price,student, seats, _id } = classe;
     const { user } = useAuth();
     const navigat = useNavigate();
 
@@ -15,11 +15,11 @@ const PopularClass = ({ classe, set }) => {
 
     
     const handleCelectClass = () => {
-
-        const selectClass = {classesId:_id,name,image,InstructorName,Price,AvailableSeats,email:user?.email}
+        
+        const selectClass = {classesId:_id,name,image,instructor,price,seats,email:user?.email}
 
         if (user && user?.email) {
-            fetch('http://localhost:5000/class', {
+            fetch('http://localhost:5000/selectClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -66,18 +66,19 @@ const PopularClass = ({ classe, set }) => {
             <div className="card-body">
                 <div className="text-center">
                     <h2 className="text-2xl font-bold text-center ">{name}</h2>
-                    <p><span className="font-bold"> Instructor Name:</span> {InstructorName}</p>
+                    <p><span className="font-bold"> Instructor Name:</span> {instructor}</p>
                     {
-                        set === 'set' && <p><span className="font-bold"> Available seats:</span> {AvailableSeats}</p>
+                        set === 'set' && <p><span className="font-bold"> Available seats:</span> {seats}</p>
                     }
-                    <p><span className="font-bold">Price : </span><span className="text-amber-400 font-semibold">${Price}</span></p>
+                    <p><span className="font-bold">Price : </span><span className="text-amber-400 font-semibold">${price}</span></p>
+                    <p><span className="font-bold">Total Enrolled: </span><span className="text-amber-400 font-semibold">{student}</span></p>
                 </div>
                 <div className="mt-4 ">
                     {
-                        AvailableSeats === 0 ||isAdmin?.admin||isInstructor?.instructor ? <>
+                        seats === 0 ||isAdmin||isInstructor ? <>
                             <button disabled onClick={() => handleCelectClass(_id)} className="btn  btn-warning w-full">Select class</button>
                             {
-                                isAdmin?.admin||isInstructor?.instructor ?'':<p className="text-red-500 flex items-center mt-3 gap-2"><FaRegTimesCircle></FaRegTimesCircle> There are no seats available !!</p> 
+                                isAdmin&&isInstructor&& <> <p className="text-red-500 flex items-center mt-3 gap-2"><FaRegTimesCircle></FaRegTimesCircle> There are no seats available !!</p> </>
                             }
                         </> : <button onClick={() => handleCelectClass()} className="btn  btn-warning w-full">Select class</button>
                     }

@@ -1,80 +1,14 @@
-// import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-// import { useState } from "react";
 
-// const CheckoutForm = () => {
-//     const [cartError, setCartError] = useState('')
-//     const stripe = useStripe();
-//     const elements = useElements();
-
-    
-
-//     const handleSubmit = async (event) => {
-//         event.preventDefault();
-
-//         if (!stripe || !elements) {
-//             return;
-//         }
-
-//         const card = elements.getElement(CardElement);
-
-//         if (card == null) {
-//             return;
-//         }
-//         const { error, paymentMethod } = await stripe.createPaymentMethod({
-//             type: 'card',
-//             card,
-//         });
-//         if (error) {
-//             console.log('[error]', error);
-//             setCartError(error.message)
-
-//         } else {
-//             setCartError('')
-//             console.log('[PaymentMethod]', paymentMethod);
-//         }
-//     }
-
-
-//     return (
-//         <>
-//             <form className="lg:w-[500px]" onSubmit={handleSubmit}>
-//                 <CardElement
-//                     options={{
-//                         style: {
-//                             base: {
-//                                 fontSize: '16px',
-//                                 color: '#424770',
-//                                 '::placeholder': {
-//                                     color: '#aab7c4',
-//                                 },
-//                             },
-//                             invalid: {
-//                                 color: '#9e2146',
-//                             },
-//                         },
-//                     }}
-//                 />
-//                 <button className="btn btn-warning mt-6 w-2/3 " type="submit" disabled={!stripe}>
-//                     Pay
-//                 </button>
-//             </form>
-//         {
-//             cartError&&<p className="text-red-600  mt-4 ">{cartError}</p>
-//         }
-//         </>
-//     );
-// };
-
-// export default CheckoutForm;
 
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 // import "./CheckOutForm.css";
 import useAuth from "../../../Hooks/useAuth";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import useAxiosSecure from "../../../Hooks/UseAxiosSecure";
 
 
-const CheckoutForm = ({ price, id, selectClassId, name }) => {
+
+const CheckoutForm = ({price, id, selectClassId, name }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -88,6 +22,7 @@ const CheckoutForm = ({ price, id, selectClassId, name }) => {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
         console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
+        console.log(clientSecret);
       });
     }
   }, [price, axiosSecure]);
@@ -165,7 +100,7 @@ const CheckoutForm = ({ price, id, selectClassId, name }) => {
         }
       });
     }
-  };
+  }
   return (
     <div className='mb-20 border border-blue-600 p-6 bg-blue-600'>
       <form onSubmit={handleSubmit}>

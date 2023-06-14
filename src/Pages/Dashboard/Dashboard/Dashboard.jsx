@@ -38,11 +38,13 @@ const Dashboard = () => {
                             </> : isInstructor ? <>
                                 <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Instructor Home</NavLink></li>
                                 <li><NavLink to="/dashboard/addClass"><FaHome></FaHome> Add class</NavLink></li>
+                                <li><NavLink to="/dashboard/myAllClass"><FaHome></FaHome> My Classes</NavLink></li>
                             </> :
                                 <>
                                     <li><NavLink to="/dashboard/userHome"><FaHome className="text-[20px]"></FaHome> Student Home</NavLink></li>
                                     <li><NavLink to="/dashboard/selectClass"><FaBible className="text-[20px]"></FaBible>My Selected Classes</NavLink></li>
                                     <li><NavLink to="/dashboard/history"><FaTerminal className="text-[20px]"></FaTerminal> My Enrolled Classes</NavLink></li>
+                                    <li><NavLink to="/dashboard/paymentHistory"><FaTerminal className="text-[20px]"></FaTerminal> Payment History</NavLink></li>
                                 </>
                         }
 
