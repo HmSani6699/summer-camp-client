@@ -13,6 +13,8 @@
 # use the all pakage in web
 ### - react slider
 ### - reat hook frome
+### - json web token
+### - axios
 
 #----------------------
 

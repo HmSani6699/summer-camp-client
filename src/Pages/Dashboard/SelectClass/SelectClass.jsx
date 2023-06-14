@@ -40,7 +40,7 @@ const SelectClass = () => {
         })
     }
 
-    const sum = loadClass?.reduce((a, b) => a + b?.Price, 0)
+    const sum = loadClass?.reduce((a, b) => a + b?.price, 0)
 
     return (
         <div className="">

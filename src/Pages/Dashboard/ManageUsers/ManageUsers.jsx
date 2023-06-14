@@ -84,10 +84,9 @@ const ManageUsers = () => {
             <Helmet><title>Sadiq | All users</title></Helmet>
             {/*  SECTION TITLE  */}
             <SectionTitle></SectionTitle>
-
+            <h2 className="text-3xl text-center font-bold mb-6 uppercase">Total Users: <span className="text-amber-400">{users?.length}</span></h2>
             {/* ALL USERS  */}
             <div className="w-[800px] p-7 bg-[#80808017]">
-                <h2 className="text-2xl font-bold mb-6 uppercase">Total Users: {users?.length}</h2>
                 <table className="table lg:w-full">
                     {/* head */}
                     <thead>
