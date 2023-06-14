@@ -54,8 +54,9 @@ const router = createBrowserRouter([
                 element: <UserHome></UserHome>
             },
             {
-                path: 'payment',
-                element:<Payment></Payment>
+                path: 'payment/:id',
+                element:<Payment></Payment>,
+                loader:({params})=>fetch(`http://localhost:5000/${params.id}`)
             },
             {
                 path: 'allusers',

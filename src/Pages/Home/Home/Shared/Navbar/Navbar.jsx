@@ -39,7 +39,7 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar bg-[#0000000a] fixed z-10  max-w-7xl mx-auto">
+        <div className="navbar bg-[#00000029] fixed z-10  max-w-7xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost text-white lg:hidden">
@@ -58,14 +58,15 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {user && <div className="avatar online lg:mr-4">
+                {user && <div className="avatar online mr-4">
                     <div className="w-12 h-12 rounded-full ring ring-[#fbbc24e3] ring-offset-base-100 ring-offset-2">
                         <img title={`${user?.displayName}`} src={user?.photoURL} />
                     </div>
                 </div>}
                 {
-                    user ? <Link> <input onClick={handleLogOut} type="submit" className="btn border-0 bg-[#fbbc24e3] mr-5" value="Log Out" /></Link> :
-                        <Link to='/login'> <input type="submit" className="btn border-0 bg-[#fbbc24e3] mr-5" value="Log in" /></Link>
+                    user ? <Link>
+                    <button onClick={handleLogOut} className="btn border-0 bg-[#fbbc24e3] mr-5">Log out</button></Link> :
+                        <Link to='/login'><button type="submit" className="btn border-0 bg-[#fbbc24e3] mr-5">Log in</button></Link>
                 }
 
             </div>

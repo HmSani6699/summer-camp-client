@@ -79,7 +79,7 @@ const SelectClass = () => {
                                     </div>
                                 </td>
                                 <td><p className="">${item.Price}</p></td>
-                                <td><Link to="/dashboard/payment"><button className="btn btn-sm bg-amber-400">Pay</button></Link></td>
+                                <td><Link to={`/dashboard/payment/${item._id}`}><button className="btn btn-sm bg-amber-400">Pay</button></Link></td>
                                 <th>
                                     <button onClick={() => handlaCartDelete(item._id)} className="btn btn-circle h-3 bg-red-800 text-white">
                                         <FaTrashAlt></FaTrashAlt>

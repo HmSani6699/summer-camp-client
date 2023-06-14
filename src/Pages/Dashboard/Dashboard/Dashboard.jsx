@@ -32,10 +32,10 @@ const Dashboard = () => {
                         <h2 className="text-1xl font-bold text-center">{user?.displayName}</h2>
                         <p className="mb-5 text-center">{user?.email}</p>
                         {
-                            isAdmin?.admin ? <>
+                            isAdmin ? <>
                                 <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Admin Home</NavLink></li>
                                 <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> Manage Users</NavLink></li>
-                            </> : isInstructor?.instructor ? <>
+                            </> : isInstructor ? <>
                                 <li><NavLink to="/dashboard/userHome"><FaHome></FaHome> Instructor Home</NavLink></li>
                                 <li><NavLink to="/dashboard/addClass"><FaHome></FaHome> Add class</NavLink></li>
                             </> :
