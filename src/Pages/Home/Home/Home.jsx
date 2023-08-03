@@ -9,13 +9,13 @@ import Feedback from "./Feedback/Feedback";
 const Home = () => {
     return (
         <div className="">
-            <Helmet><title>Sadiq | Home</title></Helmet>
+            <Helmet><title>School summer camp| Home</title></Helmet>
             <Banner></Banner>
             <Welcome></Welcome>
             <PopularClasses></PopularClasses>
             <ContactUs></ContactUs>
-           <PopularInstructors></PopularInstructors>
-           <Feedback></Feedback>
+            <PopularInstructors></PopularInstructors>
+            <Feedback></Feedback>
         </div>
     );
 };

@@ -44,7 +44,7 @@ const SelectClass = () => {
 
     return (
         <div className="">
-            <Helmet><title>Sadiq| SelectClass</title></Helmet>
+            <Helmet><title>School summer camp| SelectClass</title></Helmet>
             <p className="pt-5"></p>
             <SectionTitle></SectionTitle>
             <h2 className="text-3xl font-bold text-center  mb-12">Select the all <span className="text-amber-400">Class</span> list</h2>

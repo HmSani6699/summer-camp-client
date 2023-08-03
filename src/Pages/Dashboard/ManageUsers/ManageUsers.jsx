@@ -81,7 +81,7 @@ const ManageUsers = () => {
     return (
         <div className="">
             {/*  SECTION TITLE IN IFREME  */}
-            <Helmet><title>Sadiq | All users</title></Helmet>
+            <Helmet><title>School summer camp | All users</title></Helmet>
             {/*  SECTION TITLE  */}
             <SectionTitle></SectionTitle>
             <h2 className="text-3xl text-center font-bold mb-6 uppercase">Total Users: <span className="text-amber-400">{users?.length}</span></h2>

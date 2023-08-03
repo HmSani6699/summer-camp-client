@@ -96,7 +96,7 @@ const Register = () => {
 
     return (
         <div className="hero pt-24">
-            <Helmet><title>Sadiq | Register</title></Helmet>
+            <Helmet><title>School summer camp | Register</title></Helmet>
             <div className=" loginBox border-2 my-10 ">
                 <div className="hero-content  flex-col lg:flex-row w-full">
                     <div className="text-center w-1/2 ">

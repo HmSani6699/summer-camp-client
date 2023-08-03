@@ -17,7 +17,7 @@ const Classes = () => {
 
     return (
         <div>
-            <Helmet><title>Sadiq | classes</title></Helmet>
+            <Helmet><title>School summer camp | classes</title></Helmet>
             <ShearBanner image={banner} title={'Our Classes'} subtitle='All Classes page'></ShearBanner>
             <h2 className="text-4xl font-bold text-center mt-24">All <span className="text-amber-400">Classes</span></h2>
             <SectionTitle subHeadding={''}></SectionTitle>
