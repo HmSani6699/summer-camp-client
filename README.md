@@ -1,4 +1,4 @@
-# Sadiq
+# Summer camp
 #### - Responsive nav bar 
 #### - Awesome slider banner part
 #### - Walcome part
