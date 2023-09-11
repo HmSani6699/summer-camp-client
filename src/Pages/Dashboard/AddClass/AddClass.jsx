@@ -9,7 +9,6 @@ const {user} = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const img_hosting_url =`https://api.imgbb.com/1/upload?key=${img_hosting_token}`
     const onSubmit = data => {
-      console.log(data);
       const formData = new FormData();
       formData.append('image', data.image[0]);
   fetch(img_hosting_url, {
@@ -40,7 +39,7 @@ body:JSON.stringify(newClass)
 })
 .then(res=>res.json())
 .then(data=>{
-console.log(data.insertedId);
+// console.log(data.insertedId);
   if(data?.insertedId){
   reset();
   Swal.fire({

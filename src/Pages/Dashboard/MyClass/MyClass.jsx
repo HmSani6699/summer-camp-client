@@ -17,10 +17,10 @@ const MyClass = () => {
       return res.data;
     },
   })
-  console.log(myAllClass);
+  // console.log(myAllClass);
 
  const handleDelete = id => {
-    console.log(id);
+    // console.log(id);
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -36,7 +36,7 @@ const MyClass = () => {
         })
           .then(res => res.json())
           .then(data => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount > 0) {
               refetch();
               Swal.fire(

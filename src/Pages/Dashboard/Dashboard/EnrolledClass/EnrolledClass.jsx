@@ -4,7 +4,7 @@ import SectionTitle from '../../../../Component/SectioneTitle/SectionTitle';
 
 const EnrolledClass = () => {
     const loadPayment = useLoaderData()
-    console.log(loadPayment);
+    // console.log(loadPayment);
     return (
         <div>
             <SectionTitle></SectionTitle>

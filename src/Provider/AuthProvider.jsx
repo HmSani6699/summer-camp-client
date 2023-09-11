@@ -7,6 +7,7 @@ export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
 
+
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -83,7 +84,6 @@ const AuthProvider = ({ children }) => {
             if(currentUser){
             axios.post(`https://assignment-12-server-hmsani6699.vercel.app/jwt`,{email: currentUser.email})
             .then(data=>{
-            console.log(data.data.token)
             localStorage.setItem('access-token',data.data.token);
             setLoading(false)
             })

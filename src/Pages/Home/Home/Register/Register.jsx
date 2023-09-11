@@ -41,7 +41,7 @@ const Register = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log(data);
+                                // console.log(data);
                                 navigate(from, { replace: true });
                                 reset()
                                 Swal.fire({
@@ -85,7 +85,7 @@ const Register = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         navigate(from, { replace: true });
                     })
                     navigate(from, { replace: true });

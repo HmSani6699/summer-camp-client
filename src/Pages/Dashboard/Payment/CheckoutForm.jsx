@@ -20,9 +20,9 @@ const CheckoutForm = ({price, id, selectClassId, name }) => {
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-        console.log(res.data.clientSecret);
+        // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
-        console.log(clientSecret);
+        // console.log(clientSecret);
       });
     }
   }, [price, axiosSecure]);
@@ -45,7 +45,7 @@ const CheckoutForm = ({price, id, selectClassId, name }) => {
     });
 
     if (error) {
-      console.log("error", error);
+      // console.log("error", error);
       setCardError(error.message);
     } else {
       setCardError("");
@@ -85,7 +85,7 @@ const CheckoutForm = ({price, id, selectClassId, name }) => {
       };
 
       axiosSecure.post("/payments", payment).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         fetch(`https://assignment-12-server-hmsani6699.vercel.app/all-classes/seats/${selectClassId}`, {
           method: "PATCH",
         })
