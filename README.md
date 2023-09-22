@@ -18,4 +18,4 @@
 
 #----------------------
 
-### Private Repo Link: [https://assigment12.web.app/](https://assigment12.web.app/)
+### Project Live Link: [summer-camp-school-f8d5e.web.app](summer-camp-school-f8d5e.web.app)
